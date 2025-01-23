@@ -132,6 +132,19 @@ plot_kefj(extract_date("Nuka_Pass", "2018-07-01 00:00", "2018-07-01 23:59"),
           extract_temp("Nuka_Pass", "2018-07-01 00:00", "2018-07-01 23:59"),
           extract_exposure("Nuka_Pass", "2018-07-01 00:00", "2018-07-01 23:59"))
 
+# Wrapper function...?
+
+plot_kefj_site_date <- function(site, start, end) {
+  result <- plot_kefj(extract_date(site, start, end),
+              extract_temp(site, start, end),
+              extract_exposure(site, start,end))
+  return(result)
+}
+
+plot_kefj_site_date("Nuka_Pass", "2018-07-01 00:00", "2018-07-01 23:59")
+
+# Encapsulation --> simplified code...
+
 # P11: Save a copy of the Nuka Pass plot as "nuka_pass_2018-07-01.png" in this
 # repo
 
@@ -143,3 +156,5 @@ plot_kefj(extract_date("Nuka_Pass", "2018-07-01 00:00", "2018-07-01 23:59"),
 # opportunities for errors. This PROG102 version allows you to debug your
 # definitions before writing your functions, and changing variables is more
 # streamlined. Also PROG 102 is easier to read.
+
+
